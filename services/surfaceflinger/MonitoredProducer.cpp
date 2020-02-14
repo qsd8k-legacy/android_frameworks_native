@@ -61,7 +61,8 @@ status_t MonitoredProducer::requestBuffer(int slot, sp<GraphicBuffer>* buf) {
 
 status_t MonitoredProducer::setMaxDequeuedBufferCount(
         int maxDequeuedBuffers) {
-    return mProducer->setMaxDequeuedBufferCount(maxDequeuedBuffers);
+    maxDequeuedBuffers = 1; // Hack to fix unused arg error
+    return mProducer->setMaxDequeuedBufferCount(1);
 }
 
 status_t MonitoredProducer::setAsyncMode(bool async) {
